@@ -2,7 +2,7 @@ public class Manager {
     private int LimitFilm;
 
     {
-        LimitFilm = 5;
+        LimitFilm = 10;
     }
 
     Manager(int LimitFilm) {
@@ -18,7 +18,7 @@ public class Manager {
 
     private String[] poster = new String[0];
 
-    public String[] getPoster() {
+    public String[] findAll() {
         return poster;
     }
 
@@ -29,25 +29,26 @@ public class Manager {
         poster = tmp;
     }
 
-    public String[] findAll() {
-        for (String s : poster) {
+    public String[] findLast() {
+        int tmpIndex = 0;
 
-            System.out.println(s);
-        }
-    }
-    public void findLast() {
+
+        String[] tmp;
         if (poster.length > LimitFilm) {
+            tmp = new String[LimitFilm];
+
             for (int i = poster.length - 1; i >= poster.length - LimitFilm; i--) {
-                System.out.println(poster[i]);
+                tmp [tmpIndex] = poster [i];
+                tmpIndex ++;
             }
-
-
         } else {
+            tmp = new String[poster.length];
             for (int i = poster.length - 1; i >= 0; i--) {
-                System.out.println(poster[i]);
+                tmp [tmpIndex] = poster [i];
+                tmpIndex ++;
+
             }
         }
-
-
+        return tmp;
     }
 }
